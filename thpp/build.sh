@@ -29,6 +29,7 @@ if [[ $($SHA -b googletest-release-1.7.0.zip | cut -d' ' -f1) != \
     exit 1
 fi
 unzip googletest-release-1.7.0.zip
+mv googletest-release-1.7.0 gtest-1.7.0
 
 # Build in a separate directory
 mkdir -p build
