@@ -15,6 +15,12 @@ if [[ ! -r ./Tensor.h ]]; then
   exit 1
 fi
 
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        SHA="sha1sum"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+        SHA="shasum"
+fi
+
 rm -rf googletest-release-1.7.0 googletest-release-1.7.0.zip
 curl -JLOk https://github.com/google/googletest/archive/release-1.7.0.zip
 if [[ $($SHA -b googletest-release-1.7.0.zip | cut -d' ' -f1) != \
